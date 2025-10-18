@@ -1,0 +1,58 @@
+import gradio as gr
+from ImgCaptioning.img_cap import captioning as en_caption
+from bs4 import BeautifulSoup as bs_scrapper
+import requests
+
+
+def central(URL):
+    if not ("bbc.com" in URL):
+        return "Incorrect link, please use a URL containing bbc.com"
+    headers = {"User-Agent": "Mozilla/5.0"}
+    response = requests.get(URL, headers=headers)
+    soup = bs_scrapper(response.text, 'html.parser')
+    imgs = soup.find_all('img')  # Find images
+    res = {}
+    for index, img in enumerate(imgs, start=1):
+        img_url = img.get("src")  # Returns a string of url, not use srcset since require more handling
+
+        if not img_url:
+            continue
+        # Filter SVG
+        if img_url.endswith('.svg'):
+            continue
+
+        # Filter path difference in src
+        if img_url.startswith('//'):
+            img_url = "https:" + img_url
+        elif img_url.startswith("/"):
+            img_url = "https://ichef.bbci.co.uk" + img_url
+        elif not img_url:
+            continue
+
+        try:
+            img_fetch = requests.get(img_url, timeout=10, headers=headers)
+            img_fetch.raise_for_status()  # Debugging
+
+            caption = en_caption(img_fetch.content)
+            res[img_url] = caption
+
+        except requests.exceptions.RequestException as e:
+            print(f"[Image {index}] Failed to fetch: {img_url} — {e}")
+            continue
+        except Exception as e:
+            print(f"[Image {index}] Captioning failed: {img_url} — {e}")
+            continue
+
+    res_text = ""
+    for each_key in res.keys():
+        res_text += each_key + ": " + res[each_key] + "\n"
+    return res_text
+
+
+main_page = gr.Interface(
+    fn=central,
+    inputs="text",
+    outputs=gr.Markdown()  # Dynamic autosize
+)
+
+main_page.launch(server_name="127.0.0.1", server_port=7068, share=True)
