@@ -6,7 +6,7 @@ A Gradio-powered image context classifier that uses the [BLIP model](https://hug
 
 ## 📦 Version
 
-**Current Version:** `v0.1.0`  
+**Current Version:** `v0.2.0`  
 **Status:** Experimental  
 **Last Updated:** October 2025
 

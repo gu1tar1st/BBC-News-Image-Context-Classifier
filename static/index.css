@@ -1,0 +1,29 @@
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f8f9fa;
+}
+
+h1 {
+  font-weight: 600;
+  color: #343a40;
+}
+
+.project-description a {
+  color: #ff1b34;
+}
+
+footer {
+  position: relative;
+  bottom: 0;
+  width: 100%;
+}
+
+footer ul li a {
+  text-decoration: none;
+  color: #ffa7e0;
+}
+
+footer ul li a:hover {
+  color: #e6ffce;
+  transform: scale(10%);
+}
