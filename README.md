@@ -1,4 +1,4 @@
-# BBC-News-Image-Context-Classifier
+# BBC News Image Context Classifier
 
 A Gradio-powered image context classifier that uses the [BLIP model](https://huggingface.co/Salesforce/blip-image-captioning-base) from Hugging Face to interpret and label BBC News images based on their semantic and situational context.
 
