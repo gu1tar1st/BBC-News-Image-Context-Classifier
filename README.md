@@ -1,14 +1,15 @@
 # BBC News Image Context Classifier
 
-A Gradio-powered image context classifier that uses the [BLIP model](https://huggingface.co/Salesforce/blip-image-captioning-base) from Hugging Face to interpret and label BBC News images based on their semantic and situational context.
+A Flask-powered image context classifier that uses the [BLIP model](https://huggingface.co/Salesforce/blip-image-captioning-base) from Hugging Face to interpret and label BBC News images based on their semantic and situational context.
 
 ---
 
 ## 📦 Version
 
-**Current Version:** `v0.2.0`  
+**Current Version:** `v2.1`  
 **Status:** Experimental  
-**Last Updated:** October 2025
+**First Release:** Oct 15, 2025  
+**Last Updated:** November 1, 2025 
 
 ---
 
@@ -22,8 +23,9 @@ A Gradio-powered image context classifier that uses the [BLIP model](https://hug
 ---
 
 ## 📈 Upcoming updates
-- Integrating Flask framework
-- Potential for deployment
+- Deployment
+- Debugging image reading
+- Boost recognition speed
 
 ---
 
@@ -48,9 +50,12 @@ venv\Scripts\activate
 # 4. Install dependencies
 pip install requests bs4 transformers torch gradio langchain
 
-# 5. Run the Gradio app
-python index.py
+# 5.1. Run the Gradio app (adjust for use)
+# python index.py
+
+# 5.2. Run the Flask app (locally)
+./run
 ```
 
 ---
-Oct 18, 2025 | Henry Vu
+Nov 1, 2025 | Henry Vu

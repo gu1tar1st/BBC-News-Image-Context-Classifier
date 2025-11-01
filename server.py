@@ -1,6 +1,8 @@
 from flask import Flask
 from flask import render_template as render
-from urllib.parse import unquote # Decode url
+from urllib.parse import unquote  # Decode url
+from ServerHandler.captioningAPI import getImages, captioning_with_filter
+import json
 
 app = Flask("__BBCImagesCaptioner__")
 
@@ -14,6 +16,20 @@ def index():
 def web_scrapping(URL):
     URL = unquote(URL)
     if not ("bbc.com" in URL):
-        return "Incorrect link, please use a URL containing bbc.com"
+        return "Incorrect link, please use a BBC link"
     else:
         return "Valid link"
+
+
+@app.route('/get-images/<path:URL>/', methods=["GET"])
+def get_images(URL):
+    URL = unquote(URL)
+    paths = getImages(URL)
+    return json.dumps(paths)  # Convert Python list to JSON type
+
+
+@app.route('/get-context/<path:URL>/', methods=["GET"])
+def get_context(URL):
+    URL = unquote(URL)
+    res = captioning_with_filter(URL)
+    return res
