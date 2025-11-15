@@ -46,7 +46,7 @@ venv\Scripts\activate
 .\venv\Scripts\Activate.ps1
 
 # 4. Install dependencies
-pip install requests bs4 transformers torch gradio langchain
+pip install requests bs4 transformers torch gradio langchain waitress
 
 # 5.1. Run the Gradio app (adjust for use)
 # python index.py

@@ -2,6 +2,7 @@ from flask import Flask
 from flask import render_template as render
 from urllib.parse import unquote  # Decode url
 from ServerHandler.captioningAPI import getImages, captioning_with_filter
+from waitress import serve
 import json
 
 app = Flask("__BBCImagesCaptioner__")
@@ -33,3 +34,7 @@ def get_context(URL):
     URL = unquote(URL)
     res = captioning_with_filter(URL)
     return res
+
+
+if __name__ == "__main__":
+    serve(app, host='0.0.0.0', port=8080)
