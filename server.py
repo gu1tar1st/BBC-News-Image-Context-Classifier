@@ -1,3 +1,4 @@
+import os
 from flask import Flask
 from flask import render_template as render
 from urllib.parse import unquote  # Decode url
@@ -36,5 +37,8 @@ def get_context(URL):
     return res
 
 
+port = int(os.environ.get("PORT", 5000))
+
+
 if __name__ == "__main__":
-    serve(app, host='0.0.0.0', port=8080)
+    serve(app, host='0.0.0.0', port=port)
