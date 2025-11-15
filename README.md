@@ -6,10 +6,10 @@ A Flask-powered image context classifier that uses the [BLIP model](https://hugg
 
 ## 📦 Version
 
-**Current Version:** `v2.1`  
-**Status:** Experimental  
+**Current Version:** `v2.2`  
+**Status:** Deployed  
 **First Release:** Oct 15, 2025  
-**Last Updated:** November 1, 2025 
+**Last Updated:** November 15, 2025 
 
 ---
 
@@ -23,13 +23,11 @@ A Flask-powered image context classifier that uses the [BLIP model](https://hugg
 ---
 
 ## 📈 Upcoming updates
-- Deployment
-- Debugging image reading
-- Boost recognition speed
+- Update recognition speed
 
 ---
 
-## 🔧 Installation
+## 🔧 Installation (local)
 
 ```bash
 # 1. Clone the repository
@@ -58,4 +56,4 @@ pip install requests bs4 transformers torch gradio langchain
 ```
 
 ---
-Nov 1, 2025 | Henry Vu
+Nov 15, 2025 | Henry Vu
