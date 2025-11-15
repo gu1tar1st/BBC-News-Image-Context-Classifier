@@ -7,7 +7,7 @@ A Flask-powered image context classifier that uses the [BLIP model](https://hugg
 ## 📦 Version
 
 **Current Version:** `v2.2`  
-**Status:** Deployed  
+**Status:** Experimental  
 **First Release:** Oct 15, 2025  
 **Last Updated:** November 15, 2025 
 
